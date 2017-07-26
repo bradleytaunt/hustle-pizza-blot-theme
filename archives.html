@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    {{> head}}
+    <script src="http://code.jquery.com/jquery-1.9.0rc1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/vendors/scrolloverflow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                scrollOverflow: true,
+                scrollingSpeed: 1000
+            });
+        });
+    </script>
+    <body>
+        <!-- HEADER -->
+        {{> header}}
+        <!-- /END HEADER -->
+
+        <!-- FULL PAGE -->
+        <div id="fullpage">
+
+            <!-- MAIN -->
+            <div class="section">
+
+                <!-- BLURB -->
+                <div class="inner-content">
+                    <h2>Blog posts</h2>
+                    {{#allEntries}}
+                    <p>
+                        <span class="small-date">{{date}}</span>
+                        <a href="{{url}}">{{title}}</a>
+                    </p>
+                    {{/allEntries}}
+                </div>
+                <!-- /END BLURB -->
+
+            </div>
+            <!-- /END SECTION -->
+
+            <!-- FOOTER -->
+            <div class="section footer">
+
+                {{> footer}}
+
+            </div>
+            <!-- /END FOOTER -->
+
+        </div>
+        <!-- /END FULL PAGE -->
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    {{> head}}
+    <script src="http://code.jquery.com/jquery-1.9.0rc1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/vendors/scrolloverflow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                scrollOverflow: true,
+                scrollingSpeed: 1000
+            });
+        });
+        $(document).ready(function(){
+            $('html').mousemove(function(e){
+                var x = e.pageX - this.offsetLeft;
+                var y = e.pageY - this.offsetTop;
+                $('div.pepperoni').css({'margin-left': x * 0.15,'margin-top': y * 0.15});
+                $('div.dough').css({'margin-left': y * 0.15,'margin-top': x * 0.15});
+            });
+        });
+    </script>
+    <body>
+
+        <!-- HEADER -->
+        {{> header}}
+        <!-- /END HEADER -->
+
+        <!-- FULL PAGE -->
+        <div id="fullpage">
+
+            <!-- SPLASH -->
+            <div class="homepage-splash section active">
+                <img class="logo" src="_images/hustle-pizza-logo.svg" alt="Hustle Pizza">
+                <div class="dough">
+                    <img src="_images/hustle-pizza-dough.svg" alt="Dough">
+                </div>
+                <div class="pepperoni">
+                    <img src="_images/hustle-pizza-pepperoni.svg" alt="Pepperoni">
+                </div>
+            </div>
+            <!-- /END SPLASH -->
+
+            <!-- MAIN -->
+            <div class="section">
+
+                <!-- BLURB -->
+                <div class="inner-content">
+                    <h2>Crafting memorable experiences that help people.</h2>
+                    <p>My name is Bradley Taunt -- I'm a digital product designer and illustrator. I have over 8 years of experience across design, strategy &amp; research.</p>
+                    <p>Check my <strong><a href="{{blogURL}}/archives">blog</a></strong> for the latest or learn more <strong><a href="{{blogURL}}/about">about me</a></strong>.</p>
+                </div>
+                <!-- /END BLURB -->
+
+                <!-- PROJECT -->
+                <div class="project logo-gives">
+                    <img src="{{blogURL}}/_images/logo-gives-logo.svg" alt="Logo Gives">
+                    <h3>Giving back to the community.</h3>
+                    <a href="http://logo.gives" target="_blank" class="work-link">Check it out</a>
+                </div>
+                <!-- /END PROJECT -->
+
+                <!-- PROJECT -->
+                <div class="project normform">
+                    <img src="{{blogURL}}/_images/normform-logo.svg" alt="Normform">
+                    <h3>Forms that aren't hot garbage.</h3>
+                    <a href="https://bradleytaunt.github.io/normform/" target="_blank" class="work-link dark">Check it out</a>
+                </div>
+                <!-- /END PROJECT -->
+
+                <!-- PROJECT -->
+                <div class="project game-blocks">
+                    <img src="{{blogURL}}/_images/game-blocks-logo.svg" alt="Game Blocks">
+                    <h3>Modern video game art - for your wall.</h3>
+                    <a href="https://society6.com/bradleytaunt/collection/game-blocks" target="_blank" class="work-link">Check it out</a>
+                </div>
+                <!-- /END PROJECT -->
+
+                <!-- PROJECT -->
+                <div class="project illustration">
+                    <img src="{{blogURL}}/_images/dribbble-logo.svg" alt="Dribbble">
+                    <h3>Miscellaneous design &amp; illustrations.</h3>
+                    <a href="https://dribbble.com/hustlepizza" target="_blank" class="work-link">Check it out</a>
+                </div>
+                <!-- /END PROJECT -->
+
+            </div>
+            <!-- /END MAIN -->
+
+            <!-- FOOTER -->
+            <div class="section footer">
+
+                {{> footer}}
+
+            </div>
+            <!-- /END FOOTER -->
+
+        </div>
+        <!-- /END FULL PAGE -->
+
+    </body>
+</html>

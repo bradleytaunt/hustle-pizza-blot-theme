@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    {{> head}}
+    <script src="http://code.jquery.com/jquery-1.9.0rc1.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/vendors/scrolloverflow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                scrollOverflow: true,
+                scrollingSpeed: 1000
+            });
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <body>
+
+        <!-- HEADER -->
+        {{> header}}
+        <!-- /END HEADER -->
+
+        <!-- FULL PAGE -->
+        <div id="fullpage">
+
+            {{#entry}}
+
+                <!-- SPLASH -->
+                <div class="homepage-splash section active">
+                    <h2 class="title">
+                        {{#date}}<span>{{date}}</span>{{/date}}
+                        {{title}}
+                    </h2>
+                </div>
+                <!-- /END SPLASH -->
+
+                <!-- MAIN -->
+                <div class="section">
+
+                    <!-- CONTENT -->
+                    <div class="entry inner-content">
+                        {{{body}}}
+
+                        {{#previous}}
+                        <h5>Previous post</h5>
+                        <a class="previous" href="{{url}}">
+                            <span>{{title}}</span>
+                        </a>
+                        {{/previous}}
+
+                        {{#next}}
+                        <h5>Next post</h5>
+                        <a class="next" href="{{url}}">
+                            <span>{{title}}</span>
+                        </a>
+                        {{/next}}
+
+                    </div>
+                    <!-- /END CONTENT -->
+
+                </div>
+                <!-- /END MAIN -->
+
+                <!-- FOOTER -->
+                <div class="section footer">
+
+                    {{> footer}}
+
+                </div>
+                <!-- /END FOOTER -->
+
+                {{> pluginHTML}}
+
+            {{/entry}}
+
+        </div>
+        <!-- /END FULL PAGE -->
+
+    </body>
+</html>

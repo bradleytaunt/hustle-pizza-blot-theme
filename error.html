@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    {{> head}}
+    <script src="http://code.jquery.com/jquery-1.9.0rc1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/vendors/scrolloverflow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                scrollOverflow: true,
+                scrollingSpeed: 1000
+            });
+        });
+    </script>
+    <body>
+
+        <!-- HEADER -->
+        {{> header}}
+        <!-- /END HEADER -->
+
+        <!-- FULL PAGE -->
+        <div id="fullpage">
+
+            <!-- MAIN -->
+            <div class="section">
+
+                <!-- BLURB -->
+                <div class="inner-content">
+                    <h2>{{error.title}}</h2>
+                    <p>You seem lost, friend. Quick, <a href="{{blogURL}}">return to the homepage!</a></p>
+                </div>
+                <!-- /END BLURB -->
+
+            </div>
+            <!-- /END MAIN -->
+
+        </div>
+        <!-- /END FULL PAGE -->
+
+    </body>
+</html>
